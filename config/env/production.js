@@ -17,14 +17,14 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
-  models: {
-    connection: 'someMysqlServer'
-  },
+  // models: {
+  //   connection: 'someMysqlServer'
+  // },
 
-  port: 80,
+  // port: 80,
 
-  log: {
-    level: "silent"
-  }
+  // log: {
+  //   level: "silent"
+  // }
 
 };
