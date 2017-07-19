@@ -1,0 +1,50 @@
+<% layout('layout-admin') -%>
+<div ng-app="addQuestionApp" ng-controller="addQuestionCtr">
+	<div class="row magrin-bt-10"> 
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label for="comment">Bản gốc</label>
+				<textarea class="form-control" rows="5" ng-model="ruby" ng-trim="false" disabled=""></textarea>
+			</div>
+			<script type="text/ng-template" id="ruby.html">
+				<button class="btn btn-default btn-sm" ng-click="$parent.undo()"><i class="fa fa-undo" aria-hidden="true"></i></button>
+				<button class="btn btn-default btn-sm" ng-click="$parent.clearAllHistory()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+				<div>
+					<div class="form-group">
+						<label for="pwd">Chữ trên</label>
+						<input class="form-control" ng-model="$parent.rubyUp" tabindex="1">
+					</div>
+					<div class="form-group">
+						<label for="pwd">Chữ dưới</label>
+						<input class="form-control" ng-model="$parent.rubyDown" tabindex="2">
+					</div>
+					<div class="form-group">
+						<label for="pwd">Chữ thường</label>
+						<input class="form-control" ng-model="$parent.nomalText" ng-trim="false" tabindex="3">
+					</div>
+				</div>
+				<button class="btn btn-success" ng-click="$parent.addRuby()">ADD</button>
+				<button class="btn btn-danger btn-sm" ng-click="$parent.addSpace()">==Space==</button>
+			</script>
+			<button class="btn btn-primary" uib-popover-template="'ruby.html'" popover-append-to-body="true"  popover-placement="right" >RubyTag <i class="fa fa-diamond" aria-hidden="true"></i></button>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label>Bản xem trước</label> 
+				<div ng-bind-html="ruby" class="wrap-ruby-html"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="gridStyle" ui-grid="gridOptions" ui-grid-edit ui-grid-validate></div>
+	<div>
+		<button class="btn btn-success" ng-click="addRecord()">Add a record</button>
+		<button class="btn btn-primary" ng-click="submit()">Submit</button>
+	</div>
+
+	<!-- <div ng-class="(!sa == 1)?'err-valid':''" style="width: 50px;height: 50px;background: #000"></div> -->
+	
+</div>
+
+<script src="/app/admin/addQuestion.js"></script>
